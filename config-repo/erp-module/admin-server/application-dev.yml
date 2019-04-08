@@ -1,0 +1,71 @@
+server:
+  port: 9765
+eureka:
+  instance:
+    status-page-url-path: ${management.context-path}/info
+    health-check-url-path: ${management.context-path}/health
+    prefer-ip-address: true
+    status-page-url: http://gateway.cloud.com:9770/api/admin/swagger-ui.html
+#    hostname: ${eureka.hostname:eureka.erpExpress.com}    # 指定该Eureka实例的主机名
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+      management.context-path: ${management.context-path}
+
+spring:
+  rabbitmq:
+      host: localhost
+      port: 5672
+      password: admin
+      username: admin
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    pool:
+      max-active: 20
+      min-idle: 2
+      max-idle: 8
+      max-wait: 100
+    key-prefix: dev
+  sleuth:
+    sampler:
+      percentage: 1
+    integration:
+      enabled: false
+    scheduled:
+      skip-pattern: "^org.*HystrixStreamTask$"
+  zipkin:
+#    base-url: http://cloud-zipkin:8510
+    locator:
+      discovery:
+        enabled: true
+    service:
+      name: ${spring.application.name}
+#    rabbitmq:
+#      queue: zipkin
+erp:
+  mysql:
+    admin:
+      database: hello_springcloud       # 根据环境更改
+      driverClassName: ${erp.mysql.driverClassName}
+      host: ${erp.mysql.host}
+      password: ${erp.mysql.password}
+      port: ${erp.mysql.port}
+      url: jdbc:mysql://${erp.mysql.admin.host}:${erp.mysql.admin.port}/${erp.mysql.admin.database}?serverTimezone=CTT&characterEncoding=utf8&useUnicode=true&useSSL=false
+      username: ${erp.mysql.username}
+    #driverClassName: com.mysql.cj.jdbc.Driver  # 6.0.6
+    driverClassName: com.mysql.jdbc.Driver    # 5.x
+    host: localhost     # 根据环境更改
+    port: 3306                  # 根据环境更改
+    username: root              # 根据环境更改
+    password: lzl123
+swagger2:
+  package: com.erp.admin.controller
+  service:
+    name: admin 后台管理 服务
+    description: 后台管理服务
+    contact:
+      name: 最后
+      url: http://www.erp.com/
+      email: tangstruggle@sina.com

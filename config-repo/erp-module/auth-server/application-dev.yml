@@ -1,0 +1,71 @@
+server:
+  port: 9775
+
+spring:
+  profiles:
+    active: dev
+
+  redis:
+      key-prefix: dev
+      host: localhost
+      password: 123456
+      pool:
+        max-active: 100
+        min-idle: 2
+        max-idle: 8
+        max-wait: 100
+  rabbitmq:
+    host: localhost
+    port: 5672
+    password: admin
+    username: admin
+  zipkin:
+#    base-url: http://cloud-zipkin:8510
+    locator:
+      discovery:
+        enabled: true
+    service:
+      name: ${spring.application.name}
+#    rabbitmq:
+#      queue: zipkin
+ 
+
+erp:
+  mysql:
+    admin:
+      database: hello_springcloud       # 根据环境更改
+      driverClassName: ${erp.mysql.driverClassName}
+      host: ${erp.mysql.host}
+      password: ${erp.mysql.password}
+      port: ${erp.mysql.port}
+      url: jdbc:mysql://${erp.mysql.admin.host}:${erp.mysql.admin.port}/${erp.mysql.admin.database}?serverTimezone=CTT&characterEncoding=utf8&useUnicode=true
+      username: ${erp.mysql.username}
+    driverClassName: com.mysql.jdbc.Driver
+    host: localhost             # 根据环境更改
+    port: 3306                  # 根据环境更改
+    username: root              # 根据环境更改
+    password: root
+
+eureka:
+  instance:
+    status-page-url-path: ${management.context-path}/info
+    health-check-url-path: ${management.context-path}/health
+    preferIpAddress: true
+    status-page-url: http://gateway.cloud.com:9770/api/auth/swagger-ui.html
+    ip-address: 127.0.0.1
+    metadata-map:
+      user.name: ${security.user.name}
+      user.password: ${security.user.password}
+      management.context-path: ${management.context-path}
+
+swagger2:
+  package: com.erp.auth.controller
+  service:
+    name: 认证服务
+    description: 认证服务，用于token管理
+    contact:
+      name: 最后
+      url: http://www.cloud.com/
+      email: tangstruggle@sina.com
+
+# rabbitMQ/Mysql/Redis ip，端口，帐号等根据环境自行修改。
