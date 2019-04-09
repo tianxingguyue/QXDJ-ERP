@@ -38,20 +38,35 @@ erp:
       host: ${erp.mysql.host}
       password: ${erp.mysql.password}
       port: ${erp.mysql.port}
-      url: jdbc:mysql://${erp.mysql.admin.host}:${erp.mysql.admin.port}/${erp.mysql.admin.database}?serverTimezone=CTT&characterEncoding=utf8&useUnicode=true
+      jdbc-url: jdbc:mysql://${erp.mysql.admin.host}:${erp.mysql.admin.port}/${erp.mysql.admin.database}?serverTimezone=CTT&characterEncoding=utf8&useUnicode=true
       username: ${erp.mysql.username}
     driverClassName: com.mysql.jdbc.Driver
     host: localhost             # 根据环境更改
     port: 3306                  # 根据环境更改
     username: root              # 根据环境更改
     password: root
-
+erpslave:
+  mysql:
+    admin:
+      database: hello_springcloud       # 根据环境更改
+      driverClassName: ${erpslave.mysql.driverClassName}
+      host: ${erpslave.mysql.host}
+      password: ${erpslave.mysql.password}
+      port: ${erpslave.mysql.port}
+      jdbc-url: jdbc:mysql://${erpslave.mysql.admin.host}:${erpslave.mysql.admin.port}/${erpslave.mysql.admin.database}?serverTimezone=CTT&characterEncoding=utf8&useUnicode=true&useSSL=false
+      username: ${erpslave.mysql.username}
+    #driverClassName: com.mysql.cj.jdbc.Driver  # 6.0.6
+    driverClassName: com.mysql.jdbc.Driver    # 5.x
+    host: localhost     # 根据环境更改
+    port: 3306                  # 根据环境更改
+    username: root              # 根据环境更改
+    password: root
 eureka:
   instance:
     status-page-url-path: ${management.context-path}/info
     health-check-url-path: ${management.context-path}/health
     preferIpAddress: true
-    status-page-url: http://gateway.cloud.com:9770/api/auth/swagger-ui.html
+    status-page-url: http://gateway.erp.com:9770/api/auth/swagger-ui.html
     ip-address: 127.0.0.1
     metadata-map:
       user.name: ${security.user.name}
