@@ -45,10 +45,11 @@ erp:
     port: 3306                  # 根据环境更改
     username: root              # 根据环境更改
     password: root
+
 erpslave:
   mysql:
     admin:
-      database: hello_springcloud       # 根据环境更改
+      database: springcloud       # 根据环境更改
       driverClassName: ${erpslave.mysql.driverClassName}
       host: ${erpslave.mysql.host}
       password: ${erpslave.mysql.password}
@@ -61,6 +62,7 @@ erpslave:
     port: 3306                  # 根据环境更改
     username: root              # 根据环境更改
     password: root
+
 eureka:
   instance:
     status-page-url-path: ${management.context-path}/info
