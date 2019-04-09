@@ -82,7 +82,7 @@ swagger2:
     description: 认证服务，用于token管理
     contact:
       name: 最后
-      url: http://www.cloud.com/
+      url: http://www.erp.com/
       email: tangstruggle@sina.com
 
 # rabbitMQ/Mysql/Redis ip，端口，帐号等根据环境自行修改。
