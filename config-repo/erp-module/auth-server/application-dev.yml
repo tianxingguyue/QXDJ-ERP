@@ -76,7 +76,7 @@ eureka:
       management.context-path: ${management.context-path}
 
 swagger2:
-  package: com.erp.auth.controller
+  package: com.qxdj.auth.controller
   service:
     name: 认证服务
     description: 认证服务，用于token管理

@@ -79,7 +79,7 @@ erpslave:
     password: root
 
 swagger2:
-  package: com.erp.admin.controller
+  package: com.qxdj.admin.controller
   service:
     name: admin 后台管理 服务
     description: 后台管理服务

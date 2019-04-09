@@ -1,5 +1,4 @@
-server:
-  port: 9770
+
 
 spring:
   redis:
