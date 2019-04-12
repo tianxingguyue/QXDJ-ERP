@@ -69,7 +69,7 @@ eureka:
     health-check-url-path: ${management.context-path}/health
     preferIpAddress: true
     status-page-url: http://gateway.erp.com:9770/api/auth/swagger-ui.html
-    ip-address: 127.0.0.1
+ #   ip-address: 127.0.0.1
     metadata-map:
       user.name: ${security.user.name}
       user.password: ${security.user.password}
