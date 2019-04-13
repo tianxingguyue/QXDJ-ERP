@@ -8,7 +8,7 @@ spring:
   redis:
       key-prefix: dev
       host: localhost
-      password: 123456
+      #password: 123456
       pool:
         max-active: 100
         min-idle: 2
