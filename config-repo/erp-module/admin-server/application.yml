@@ -69,12 +69,12 @@ id-generator:
   machine-code: 1  # id生成器机器掩码
 
 
-pagehelper:
-  dialect: com.github.pagehelper.dialect.helper.MySqlDialect
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-  helperDialect: mysql
-  offsetAsPageNum: true
-  rowBoundsWithCount: true
-  reasonable: false
+#pagehelper:
+#  dialect: com.github.pagehelper.dialect.helper.MySqlDialect
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql
+#  helperDialect: mysql
+#  offsetAsPageNum: true
+#  rowBoundsWithCount: true
+#  reasonable: false
