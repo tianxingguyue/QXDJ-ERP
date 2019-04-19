@@ -68,6 +68,11 @@ auth:
 id-generator:
   machine-code: 1  # id生成器机器掩码
 
+pagehelper:
+  helperDialect: mysql
+  offsetAsPageNum: true
+  rowBoundsWithCount: true
+  reasonable: false
 
 #pagehelper:
 #  dialect: com.github.pagehelper.dialect.helper.MySqlDialect
